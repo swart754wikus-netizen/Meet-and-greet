@@ -78,9 +78,17 @@ export default function Home() {
       {/* Hero */}
       <header className="border-b border-black/[.08] bg-white dark:border-white/[.145] dark:bg-black">
         <div className="mx-auto flex max-w-4xl flex-col gap-3 px-6 py-10 sm:px-10">
-          <p className="text-sm font-medium uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-            Restaurant
-          </p>
+          <div className="flex items-center gap-3">
+            <span
+              aria-hidden="true"
+              className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[#7c2d12] font-serif text-lg font-bold text-[#fef3c7]"
+            >
+              M&amp;G
+            </span>
+            <p className="text-sm font-medium uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+              Restaurant
+            </p>
+          </div>
           <h1 className="text-3xl font-semibold tracking-tight text-black dark:text-zinc-50 sm:text-4xl">
             The Meet and Greet Tzaneen
           </h1>
