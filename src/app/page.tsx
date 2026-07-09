@@ -180,8 +180,6 @@ export default function Home() {
               <Stars rating={4.6} /> 4.6
             </span>
             <span>(493 reviews)</span>
-            <span aria-hidden="true">·</span>
-            <span>R 200–300 per person</span>
           </div>
           <div className="flex flex-wrap gap-3 pt-4">
             <a
@@ -404,6 +402,17 @@ export default function Home() {
               </tbody>
             </table>
           </div>
+        </section>
+
+        {/* Map */}
+        <section className="overflow-hidden rounded-3xl border border-[#7c2d12]/8 shadow-sm shadow-[#2a1a12]/5 dark:border-[#f5e9d8]/10">
+          <iframe
+            title="Map to The Meet and Greet, 11 Peace St, Arbor Park, Tzaneen"
+            src="https://www.google.com/maps?q=11+Peace+St,+Arbor+Park,+Tzaneen,+0850&output=embed"
+            className="h-80 w-full sm:h-96"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </section>
       </main>
 
