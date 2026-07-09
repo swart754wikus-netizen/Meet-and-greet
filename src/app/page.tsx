@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const HOURS: { day: string; hours: string }[] = [
   { day: "Monday", hours: "9 am – 9 pm" },
   { day: "Tuesday", hours: "9 am – 9 pm" },
@@ -142,21 +144,24 @@ export default function Home() {
 
       {/* Hero */}
       <header id="top" className="relative overflow-hidden bg-[#2a1a12] text-[#fdf8f0]">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 20%, #d97706 0, transparent 45%), radial-gradient(circle at 80% 0%, #7c2d12 0, transparent 50%)",
-          }}
+        <Image
+          src="/images/hero-pizza.jpg"
+          alt="Wood-fired pizza fresh from the oven"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 opacity-[0.06]"
+          className="absolute inset-0 bg-gradient-to-t from-[#1a0f08] via-[#1a0f08]/85 to-[#1a0f08]/40"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-30"
           style={{
             backgroundImage:
-              "radial-gradient(circle, #fdf8f0 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
+              "radial-gradient(circle at 20% 20%, #d97706 0, transparent 45%), radial-gradient(circle at 80% 0%, #7c2d12 0, transparent 50%)",
           }}
         />
         <div className="relative mx-auto flex max-w-5xl flex-col items-start gap-6 px-6 py-24 sm:px-10 sm:py-32">
@@ -245,6 +250,26 @@ export default function Home() {
                 </p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Gallery break */}
+        <section className="relative overflow-hidden rounded-3xl shadow-xl shadow-[#2a1a12]/10">
+          <div className="relative h-64 w-full sm:h-80">
+            <Image
+              src="/images/beer-pour.jpg"
+              alt="Cold Stella Artois being poured at the bar"
+              fill
+              sizes="(min-width: 1024px) 960px, 100vw"
+              className="object-cover"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-[#1a0f08]/70 via-transparent to-transparent"
+            />
+            <p className="absolute bottom-5 left-6 font-[family-name:var(--font-display)] text-xl italic text-[#fdf8f0] sm:left-8 sm:text-2xl">
+              Cold on tap, always.
+            </p>
           </div>
         </section>
 
