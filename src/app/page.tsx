@@ -13,31 +13,37 @@ const MENU_HIGHLIGHTS = [
     name: "Pizza",
     tag: "Popular",
     desc: "Wood-fired, loaded with your favourite toppings.",
+    icon: "🍕",
   },
   {
     name: "Steak with Pepper & Mushroom Sauce",
     tag: "Popular",
     desc: "Char-grilled to order, smothered in a rich pan sauce.",
+    icon: "🥩",
   },
   {
     name: "Chicken Salad",
     tag: "",
     desc: "Fresh, light and a firm local favourite.",
+    icon: "🥗",
   },
   {
     name: "Blue Cheese & Fig Pizza",
     tag: "",
     desc: "Sweet fig jam and tangy blue cheese on a crisp base.",
+    icon: "🍕",
   },
   {
     name: "Meat Basket",
     tag: "",
     desc: "A shareable spread for the table.",
+    icon: "🍖",
   },
   {
     name: "French Fries",
     tag: "",
     desc: "Golden, crispy, the perfect side or bar snack.",
+    icon: "🍟",
   },
 ];
 
@@ -118,7 +124,7 @@ export default function Home() {
               Meet and Greet
             </span>
           </a>
-          <div className="flex items-center gap-6 text-sm font-medium text-[#5c3a24] dark:text-[#e7d3b8]">
+          <div className="hidden items-center gap-6 text-sm font-medium text-[#5c3a24] dark:text-[#e7d3b8] sm:flex">
             {NAV_LINKS.map((link) => (
               <a key={link.href} href={link.href} className="hover:text-[#7c2d12] dark:hover:text-[#f5e9d8]">
                 {link.label}
@@ -142,6 +148,15 @@ export default function Home() {
           style={{
             backgroundImage:
               "radial-gradient(circle at 20% 20%, #d97706 0, transparent 45%), radial-gradient(circle at 80% 0%, #7c2d12 0, transparent 50%)",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, #fdf8f0 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
           }}
         />
         <div className="relative mx-auto flex max-w-5xl flex-col items-start gap-6 px-6 py-24 sm:px-10 sm:py-32">
@@ -207,8 +222,14 @@ export default function Home() {
             {MENU_HIGHLIGHTS.map((item) => (
               <div
                 key={item.name}
-                className="flex flex-col gap-2 rounded-2xl border border-[#7c2d12]/10 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-[#f5e9d8]/10 dark:bg-[#2a1a12]"
+                className="flex flex-col gap-3 rounded-2xl border border-[#7c2d12]/10 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-[#f5e9d8]/10 dark:bg-[#2a1a12]"
               >
+                <span
+                  aria-hidden="true"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#fdf1de] text-xl dark:bg-[#3a281b]"
+                >
+                  {item.icon}
+                </span>
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-[#2a1a12] dark:text-[#f5e9d8]">
                     {item.name}
