@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const HOURS: { day: string; hours: string }[] = [
   { day: "Monday", hours: "9 am – 9 pm" },
@@ -12,40 +13,46 @@ const HOURS: { day: string; hours: string }[] = [
 
 const MENU_HIGHLIGHTS = [
   {
-    name: "Pizza",
+    name: "Blue Cheese Pizza",
     tag: "Popular",
-    desc: "Wood-fired, loaded with your favourite toppings.",
+    desc: "Bacon, blue cheese, fig jam & rocket on a 32cm base.",
+    price: "R155",
     icon: "🍕",
   },
   {
-    name: "Steak with Pepper & Mushroom Sauce",
+    name: "Cheesy Jalapeno Steak",
     tag: "Popular",
-    desc: "Char-grilled to order, smothered in a rich pan sauce.",
+    desc: "300g rump, cheese sauce, jalapeno with melted mozzarella.",
+    price: "R198",
     icon: "🥩",
   },
   {
-    name: "Chicken Salad",
+    name: "Sweet Chilli Chicken Salad",
     tag: "",
-    desc: "Fresh, light and a firm local favourite.",
+    desc: "Lettuce, peppers, olives, feta, cashew nuts & chicken.",
+    price: "R109",
     icon: "🥗",
-  },
-  {
-    name: "Blue Cheese & Fig Pizza",
-    tag: "",
-    desc: "Sweet fig jam and tangy blue cheese on a crisp base.",
-    icon: "🍕",
   },
   {
     name: "Meat Basket",
     tag: "",
-    desc: "A shareable spread for the table.",
+    desc: "Short rib, russian & pork rasher, chips & pizza bread with cheese sauce.",
+    price: "R189",
     icon: "🍖",
   },
   {
-    name: "French Fries",
+    name: "Seafood Jollof",
     tag: "",
-    desc: "Golden, crispy, the perfect side or bar snack.",
-    icon: "🍟",
+    desc: "Hake on savoury rice with seafood mix in creamy garlic sauce and lemon.",
+    price: "R186",
+    icon: "🦐",
+  },
+  {
+    name: "Chocolate Brownie",
+    tag: "",
+    desc: "With nuts, served with ice cream or cream.",
+    price: "R72",
+    icon: "🍫",
   },
 ];
 
@@ -87,7 +94,7 @@ const REVIEWS = [
 ];
 
 const NAV_LINKS = [
-  { href: "#menu", label: "Menu" },
+  { href: "/menu", label: "Menu" },
   { href: "#about", label: "About" },
   { href: "#reviews", label: "Reviews" },
   { href: "#visit", label: "Visit" },
@@ -182,12 +189,12 @@ export default function Home() {
             <span>(493 reviews)</span>
           </div>
           <div className="flex flex-wrap gap-3 pt-4">
-            <a
-              href="#menu"
+            <Link
+              href="/menu"
               className="rounded-full bg-[#f5c88a] px-6 py-3 text-sm font-semibold text-[#2a1a12] shadow-lg shadow-[#f5c88a]/20 transition-colors hover:bg-[#eab465]"
             >
               View the menu
-            </a>
+            </Link>
             <a
               href="#visit"
               className="rounded-full border border-[#fdf8f0]/40 px-6 py-3 text-sm font-semibold text-[#fdf8f0] transition-colors hover:bg-[#fdf8f0]/10"
@@ -237,18 +244,27 @@ export default function Home() {
                   <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-[#2a1a12] dark:text-[#f5e9d8]">
                     {item.name}
                   </h3>
-                  {item.tag && (
-                    <span className="flex-shrink-0 rounded-full bg-[#fdf1de] px-2 py-0.5 text-xs font-semibold text-[#a8602f] dark:bg-[#3a281b] dark:text-[#f5c88a]">
-                      {item.tag}
-                    </span>
-                  )}
+                  <span className="flex-shrink-0 font-semibold text-[#a8602f]">
+                    {item.price}
+                  </span>
                 </div>
+                {item.tag && (
+                  <span className="w-fit rounded-full bg-[#fdf1de] px-2 py-0.5 text-xs font-semibold text-[#a8602f] dark:bg-[#3a281b] dark:text-[#f5c88a]">
+                    {item.tag}
+                  </span>
+                )}
                 <p className="text-sm text-[#6b4a34] dark:text-[#d8c3ab]">
                   {item.desc}
                 </p>
               </div>
             ))}
           </div>
+          <Link
+            href="/menu"
+            className="mx-auto flex items-center gap-2 rounded-full border border-[#7c2d12]/20 px-6 py-3 text-sm font-semibold text-[#7c2d12] transition-colors hover:bg-[#7c2d12]/5 dark:border-[#f5e9d8]/20 dark:text-[#f5c88a] dark:hover:bg-[#f5e9d8]/5"
+          >
+            View full menu →
+          </Link>
         </section>
 
         {/* Gallery break */}
