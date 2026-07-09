@@ -166,7 +166,7 @@ export default function Home() {
           <h1 className="font-[family-name:var(--font-display)] text-5xl font-bold leading-tight sm:text-6xl">
             The Meet and Greet
           </h1>
-          <p className="max-w-xl text-lg text-[#f0dfc6]">
+          <p className="max-w-xl font-[family-name:var(--font-display)] text-lg italic leading-relaxed text-[#f0dfc6]">
             A warm, welcoming table in the heart of Tzaneen — good food, cold
             drinks, and a place worth gathering around.
           </p>
@@ -181,7 +181,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-3 pt-4">
             <a
               href="#menu"
-              className="rounded-full bg-[#f5c88a] px-6 py-3 text-sm font-semibold text-[#2a1a12] transition-colors hover:bg-[#eab465]"
+              className="rounded-full bg-[#f5c88a] px-6 py-3 text-sm font-semibold text-[#2a1a12] shadow-lg shadow-[#f5c88a]/20 transition-colors hover:bg-[#eab465]"
             >
               View the menu
             </a>
@@ -197,7 +197,7 @@ export default function Home() {
 
       <main className="mx-auto flex w-full max-w-5xl flex-col gap-24 px-6 py-20 sm:px-10">
         {/* Services strip */}
-        <section className="relative z-10 -mt-32 flex flex-wrap justify-center gap-4 rounded-2xl border border-[#7c2d12]/10 bg-white p-6 shadow-lg shadow-[#2a1a12]/10 dark:border-[#f5e9d8]/10 dark:bg-[#2a1a12] sm:justify-between">
+        <section className="relative z-10 -mt-32 flex flex-wrap justify-center gap-4 rounded-3xl border border-[#7c2d12]/8 bg-[#fffbf5] p-7 shadow-xl shadow-[#2a1a12]/10 dark:border-[#f5e9d8]/10 dark:bg-[#241609] sm:justify-between">
           {SERVICES.map((service) => (
             <span
               key={service}
@@ -222,7 +222,7 @@ export default function Home() {
             {MENU_HIGHLIGHTS.map((item) => (
               <div
                 key={item.name}
-                className="flex flex-col gap-3 rounded-2xl border border-[#7c2d12]/10 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-[#f5e9d8]/10 dark:bg-[#2a1a12]"
+                className="flex flex-col gap-3 rounded-3xl border border-[#7c2d12]/8 bg-[#fffbf5] p-7 shadow-sm shadow-[#2a1a12]/5 transition-shadow hover:shadow-md hover:shadow-[#2a1a12]/10 dark:border-[#f5e9d8]/10 dark:bg-[#241609]"
               >
                 <span
                   aria-hidden="true"
@@ -258,20 +258,22 @@ export default function Home() {
               A relaxed spot for every occasion
             </h2>
           </div>
-          <div className="grid gap-x-8 gap-y-6 rounded-2xl border border-[#7c2d12]/10 bg-white p-8 dark:border-[#f5e9d8]/10 dark:bg-[#2a1a12] sm:grid-cols-2 lg:grid-cols-3">
+          <div className="flex flex-col gap-7 rounded-3xl border border-[#7c2d12]/8 bg-[#fffbf5] p-8 shadow-sm shadow-[#2a1a12]/5 dark:border-[#f5e9d8]/10 dark:bg-[#241609] sm:p-10">
             {AMENITY_GROUPS.map((group) => (
-              <div key={group.title}>
-                <h3 className="mb-2 font-[family-name:var(--font-display)] text-sm font-semibold uppercase tracking-wide text-[#a8602f]">
+              <div key={group.title} className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:gap-6">
+                <h3 className="w-40 flex-shrink-0 font-[family-name:var(--font-display)] text-sm font-semibold uppercase tracking-wide text-[#a8602f]">
                   {group.title}
                 </h3>
-                <ul className="flex flex-col gap-1 text-sm text-[#6b4a34] dark:text-[#d8c3ab]">
+                <div className="flex flex-wrap gap-2">
                   {group.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2">
-                      <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-[#a8602f]" />
+                    <span
+                      key={item}
+                      className="rounded-full border border-[#7c2d12]/10 bg-[#fdf1de]/70 px-3 py-1 text-xs text-[#6b4a34] dark:border-[#f5e9d8]/10 dark:bg-[#3a281b]/70 dark:text-[#d8c3ab]"
+                    >
                       {item}
-                    </li>
+                    </span>
                   ))}
-                </ul>
+                </div>
               </div>
             ))}
           </div>
@@ -291,13 +293,19 @@ export default function Home() {
             {REVIEWS.map((review) => (
               <figure
                 key={review.name}
-                className="flex flex-col gap-4 rounded-2xl border border-[#7c2d12]/10 bg-white p-6 dark:border-[#f5e9d8]/10 dark:bg-[#2a1a12]"
+                className="relative flex flex-col gap-4 overflow-hidden rounded-3xl border border-[#7c2d12]/8 bg-[#fffbf5] p-7 shadow-sm shadow-[#2a1a12]/5 dark:border-[#f5e9d8]/10 dark:bg-[#241609]"
               >
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -right-2 -top-4 select-none font-[family-name:var(--font-display)] text-8xl leading-none text-[#7c2d12]/[0.06] dark:text-[#f5e9d8]/[0.08]"
+                >
+                  “
+                </span>
                 <Stars rating={5} />
-                <blockquote className="flex-1 text-sm text-[#6b4a34] dark:text-[#d8c3ab]">
+                <blockquote className="relative flex-1 text-sm leading-relaxed text-[#6b4a34] dark:text-[#d8c3ab]">
                   “{review.text}”
                 </blockquote>
-                <figcaption>
+                <figcaption className="relative border-t border-[#7c2d12]/8 pt-4 dark:border-[#f5e9d8]/10">
                   <p className="font-semibold text-[#2a1a12] dark:text-[#f5e9d8]">
                     {review.name}
                   </p>
@@ -313,7 +321,7 @@ export default function Home() {
         {/* Visit */}
         <section
           id="visit"
-          className="grid gap-10 rounded-2xl bg-[#2a1a12] p-8 text-[#fdf8f0] sm:grid-cols-2 sm:p-12"
+          className="grid gap-10 rounded-3xl bg-[#2a1a12] p-8 text-[#fdf8f0] shadow-xl shadow-[#2a1a12]/20 sm:grid-cols-2 sm:p-12"
         >
           <div className="flex flex-col gap-4">
             <span className="text-sm font-semibold uppercase tracking-widest text-[#f5c88a]">
